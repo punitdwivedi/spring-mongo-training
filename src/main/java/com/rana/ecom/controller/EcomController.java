@@ -16,6 +16,7 @@ import com.rana.ecom.constant.IEcomConstant;
 import com.rana.ecom.dao.IEcomDao;
 import com.rana.ecom.model.Product;
 import com.rana.ecom.model.ServiceResponse;
+import com.rana.ecom.model.UpdateProduct;
 
 
 
@@ -74,6 +75,61 @@ public class EcomController {
 		
 		return res;
 	}
+	
+	
+	@RequestMapping(value = "/updateproduct", method = RequestMethod.POST, consumes="application/json")
+	public @ResponseBody ServiceResponse updatePost(@RequestBody UpdateProduct product){
+		ServiceResponse res = new ServiceResponse();
+		
+		
+		
+		try {
+			ecomDao.updateProductNew(product);
+			res.setStatus(IEcomConstant.SUCCESS);
+		} catch (Exception e) {
+			res.setStatus(IEcomConstant.FAILED);
+			res.setMsg(e.getMessage());
+		}
+		
+		return res;
+	}
+	
+	@RequestMapping(value = "/updateprice", method = RequestMethod.POST, consumes="application/json")
+	public @ResponseBody ServiceResponse updatePrice(@RequestBody Product product){
+		ServiceResponse res = new ServiceResponse();
+		
+		
+		
+		try {
+			ecomDao.updatePrice(product);
+			res.setStatus(IEcomConstant.SUCCESS);
+		} catch (Exception e) {
+			res.setStatus(IEcomConstant.FAILED);
+			res.setMsg(e.getMessage());
+		}
+		
+		return res;
+	}
+	
+	@RequestMapping(value = "/updateinventory", method = RequestMethod.POST, consumes="application/json")
+	public @ResponseBody ServiceResponse updateInventory(@RequestBody Product product){
+		ServiceResponse res = new ServiceResponse();
+		
+		
+		
+		try {
+			ecomDao.updateInventory(product);
+			res.setStatus(IEcomConstant.SUCCESS);
+		} catch (Exception e) {
+			res.setStatus(IEcomConstant.FAILED);
+			res.setMsg(e.getMessage());
+		}
+		
+		return res;
+	}
+	
+	
+	
 	
 	/**
 	 * Get product based on category with create date descending - Punit's Team
