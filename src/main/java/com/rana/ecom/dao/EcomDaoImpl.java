@@ -63,6 +63,22 @@ public class EcomDaoImpl implements IEcomDao {
 		return 0;
 	}
 
+	@Override
+	public List<Product> getProductsByCategory(String category, int skip,
+			int limit) throws Exception {
+		List<Product> products = null;
+		final Query  query = new Query();
+		query.addCriteria(Criteria.where("category").is(category));
+		query.with(new Sort(Sort.Direction.DESC,"createDate")).skip(skip).limit(limit);
+		try{
+			products = dbManager.getMongoTemplate().find(query, Product.class);
+		}catch(Exception e){
+			e.printStackTrace();
+			throw e;
+		}
+		return products;
+	}
+
 	
 
 }

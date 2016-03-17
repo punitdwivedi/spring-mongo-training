@@ -75,7 +75,26 @@ public class EcomController {
 		return res;
 	}
 	
-	
+	/**
+	 * Get product based on category with create date descending - Punit's Team
+	 * @param cat
+	 * @param skip
+	 * @param limit
+	 * @return
+	 */
+	@RequestMapping(value = "/getproducts/{cat}/{skip}/{limit}", method = RequestMethod.GET, produces = "application/json")
+	public @ResponseBody ServiceResponse getproductsByCategory(@PathVariable String cat, @PathVariable int skip, @PathVariable int limit){
+		ServiceResponse res = new ServiceResponse();
+		try {
+			List<Product> products = ecomDao.getProductsByCategory(cat, skip, limit);
+			res.setObj(products);
+			res.setStatus(IEcomConstant.SUCCESS);
+		} catch (Exception e) {
+			res.setStatus(IEcomConstant.FAILED);
+			res.setMsg(e.getMessage());
+		}
+		return res;
+	}
 	
 	
 	
