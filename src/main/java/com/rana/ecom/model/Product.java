@@ -2,6 +2,7 @@ package com.rana.ecom.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -22,10 +23,33 @@ public class Product implements Serializable{
 	private String category;
 	private String navigationPath;
 	private String status;	
+	
 	private Date createDate;
 	private Date updateDate;
 	
+	private List<Price> priceInfo;
 	
+	private Inventory inventory;
+	
+	
+	
+	
+	
+	
+	
+	
+	public Inventory getInventory() {
+		return inventory;
+	}
+	public void setInventory(Inventory inventory) {
+		this.inventory = inventory;
+	}
+	public List<Price> getPriceInfo() {
+		return priceInfo;
+	}
+	public void setPriceInfo(List<Price> priceInfo) {
+		this.priceInfo = priceInfo;
+	}
 	
 	public Date getCreateDate() {
 		return createDate;
