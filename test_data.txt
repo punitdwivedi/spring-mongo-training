@@ -1,0 +1,44 @@
+Update Attribute
+================
+{
+	"id" : "56eaddec66fd9222c44bda84",
+	"attrMap" : {
+		"status" : "U",
+		"description" : "THIS IS UNPUBLISHED"
+	}
+}
+
+Update Price
+============
+{
+	"id" : "56eaddec66fd9222c44bda84",
+	"priceInfo" : [{
+		"type" : "List",
+		"value" : "12.9",
+		"unit" : "USD"
+	}]
+}
+
+Update Inventory
+================
+{
+	"id" : "56eaddec66fd9222c44bda84",
+	"inventory" : {
+		"totalQuantity" : 100,
+		"stores" : [
+			{
+				"name" : "Store 1",
+				"quantity" : 45,
+				"quantityUnit" : "Number"				
+			},
+			{
+				"name" : "Store 2",
+				"quantity" : 55,
+				"quantityUnit" : "Number"				
+			}
+		]
+		
+	}
+}
+
+
